@@ -6,12 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="EventBusRabbitMQGenerics" Version="1.0.2" />
+	</ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="EventsHandlers\" />
     <Folder Include="Events\" />
     <Folder Include="CommandsHandlers\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Commands\" />
   </ItemGroup>
 

@@ -25,13 +25,6 @@ namespace Banking.Application.IoC
             services.AddDbContext<BankingDBContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("BankingDB")));
 
 
-            //rabbitmq
-            services.AddTransient<IEventBus, RabbitMQBus>();
-
-            services.Configure<RabbitMQSettings>(configuration.GetSection("RabbitMQSettings"));
-
-            services.AddMediatR(config =>
-           config.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
         }
      
     }

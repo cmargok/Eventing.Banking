@@ -1,6 +1,25 @@
+using EventBusLibrary.IoC;
+using Transfer.Api.IoC;
+
 var builder = WebApplication.CreateBuilder(args);
 
+
+DependencyContainerThisApi.RegisterTransferServices(builder.Services, builder.Configuration);
+
+//register Event services
+builder.Services.RegisterServices(builder.Configuration);
+
+
 // Add services to the container.
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", builder =>
+        builder
+        .AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyHeader()
+        );
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -19,6 +38,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors("CorsPolicy");
 
 app.MapControllers();
 
