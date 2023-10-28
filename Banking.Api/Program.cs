@@ -1,6 +1,14 @@
+using Banking.Application.IoC;
+using EventBusLibrary.IoC;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container
+DependencyContainerThisApi.RegisterBankingServices(builder.Services, builder.Configuration);
+
+//register Event services
+DependecyContainer.RegisterServices(builder.Services, builder.Configuration);
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
