@@ -1,33 +1,25 @@
+using Banking.Application.interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Banking.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/v1/[controller]")]
     public class BankingController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly IAccountService _accountService;
 
-        private readonly ILogger<BankingController> _logger;
-
-        public BankingController(ILogger<BankingController> logger)
+        public BankingController(IAccountService accountService)
         {
-            _logger = logger;
+            _accountService = accountService;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IActionResult> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var result = _accountService.GetAccounts();
+
+           return Ok(result);
         }
     }
 }
