@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 DependencyContainerThisApi.RegisterBankingServices(builder.Services, builder.Configuration);
 
 //register Event services
-builder.Services.RegisterServices(builder.Configuration);
+builder.Services.AddEventBus(builder.Configuration);
 
 builder.Services.AddCors(opt =>
  {

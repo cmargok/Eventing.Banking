@@ -7,11 +7,11 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="EventBusRabbitMQGenerics" Version="1.0.2" />
+		<PackageReference Include="EventBusRabbitMQGenerics" Version="1.0.3" />
 	</ItemGroup>
-  <ItemGroup>
-    <Folder Include="EventsHandlers\" />
-    <Folder Include="Events\" />
+
+
+	<ItemGroup>
     <Folder Include="CommandsHandlers\" />
     <Folder Include="Commands\" />
   </ItemGroup>

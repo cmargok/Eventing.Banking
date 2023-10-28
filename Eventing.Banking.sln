@@ -15,13 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Banking", "Banking", "{2FAE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transfer", "Transfer", "{F95B3C7F-C239-4073-8008-F2CB982D5D5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transfer.Api", "Transfer.Api\Transfer.Api.csproj", "{16008444-11D1-4080-98BD-922C5A2A99DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transfer.Api", "Transfer.Api\Transfer.Api.csproj", "{16008444-11D1-4080-98BD-922C5A2A99DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transfer.Infrastructure", "Transfer.Infrastructure\Transfer.Infrastructure.csproj", "{987AC509-6329-4E8A-BAAE-09AD1B31AA89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transfer.Infrastructure", "Transfer.Infrastructure\Transfer.Infrastructure.csproj", "{987AC509-6329-4E8A-BAAE-09AD1B31AA89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transfer.Domain", "Transfer.Domain\Transfer.Domain.csproj", "{DB871760-E8DF-4037-81BF-09B7698294D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transfer.Domain", "Transfer.Domain\Transfer.Domain.csproj", "{DB871760-E8DF-4037-81BF-09B7698294D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transfer.Application", "Transfer.Application\Transfer.Application.csproj", "{F90AAF5A-5EA7-4390-BE25-3E2A21D0AF89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transfer.Application", "Transfer.Application\Transfer.Application.csproj", "{F90AAF5A-5EA7-4390-BE25-3E2A21D0AF89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,15 +1,19 @@
+
+using EventBusLibrary.Core.Bus;
 using EventBusLibrary.IoC;
 using Transfer.Api.IoC;
+using Transfer.Domain.EventHandlers;
+using Transfer.Domain.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-DependencyContainerThisApi.RegisterTransferServices(builder.Services, builder.Configuration);
+
 
 //register Event services
-builder.Services.RegisterServices(builder.Configuration);
+builder.Services.AddEventBus(builder.Configuration);
 
-
+DependencyContainerThisApi.RegisterTransferServices(builder.Services, builder.Configuration);
 // Add services to the container.
 builder.Services.AddCors(opt =>
 {
@@ -27,6 +31,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+
+var eventBus = app.Services.GetRequiredService<IEventBus>();
+
+eventBus.Subscribe<TransferCreateEvent, TransferEventHandler>();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

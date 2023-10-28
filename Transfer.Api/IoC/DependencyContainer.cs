@@ -1,6 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EventBusLibrary.Core.Bus;
+using Microsoft.EntityFrameworkCore;
 using Transfer.Application.Interfaces;
 using Transfer.Application.Services;
+using Transfer.Domain.EventHandlers;
+using Transfer.Domain.Events;
 using Transfer.Domain.Interfaces;
 using Transfer.Infrastructure.Persistence.Context;
 using Transfer.Infrastructure.Persistence.Repositories;
@@ -21,7 +24,9 @@ namespace Transfer.Api.IoC
 
             services.AddDbContext<TransferDBContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("TransferDb")));
 
+            services.AddTransient<IEventHandler<TransferCreateEvent>, TransferEventHandler>();
 
+            services.AddTransient<TransferEventHandler>();
         }
 
     }

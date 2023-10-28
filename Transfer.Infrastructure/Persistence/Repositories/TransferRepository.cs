@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace Transfer.Infrastructure.Persistence.Repositories
             var logs = _dbContext.TransferLogs;
 
             return logs;
+        }
+
+        public void AddTransferLog(TransferLog log)
+        {
+            _dbContext.Add(log);
+            _dbContext.SaveChanges();
         }
     }
 }
