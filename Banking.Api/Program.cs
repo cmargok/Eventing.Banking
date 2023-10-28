@@ -1,5 +1,5 @@
 using Banking.Application.IoC;
-using EventBusLibrary.IoC;
+//using EventBusLibrary.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 DependencyContainerThisApi.RegisterBankingServices(builder.Services, builder.Configuration);
 
 //register Event services
-DependecyContainer.RegisterServices(builder.Services, builder.Configuration);
+//DependecyContainer.RegisterServices(builder.Services, builder.Configuration);
 
 
 builder.Services.AddControllers();

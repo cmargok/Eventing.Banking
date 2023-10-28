@@ -1,4 +1,5 @@
-﻿using Banking.Domain.Interfaces;
+﻿
+using Banking.Domain.Interfaces;
 using Banking.Domain.Models;
 using Banking.Infrastructure.Persistence.Context;
 
