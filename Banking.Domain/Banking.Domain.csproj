@@ -5,11 +5,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
+	
+	<ItemGroup>
+		<PackageReference Include="EventBusRabbitMQGenerics" Version="1.0.2" />
+	</ItemGroup>
+	
   <ItemGroup>
-    <Folder Include="CommandHandlers\" />
-    <Folder Include="Commands\" />
-    <Folder Include="Events\" />
     <Folder Include="EventsHandlers\" />
   </ItemGroup>
 

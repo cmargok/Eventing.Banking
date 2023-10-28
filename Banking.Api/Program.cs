@@ -1,5 +1,5 @@
 using Banking.Application.IoC;
-//using EventBusLibrary.IoC;
+using EventBusLibrary.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +7,17 @@ var builder = WebApplication.CreateBuilder(args);
 DependencyContainerThisApi.RegisterBankingServices(builder.Services, builder.Configuration);
 
 //register Event services
-//DependecyContainer.RegisterServices(builder.Services, builder.Configuration);
+builder.Services.RegisterServices(builder.Configuration);
+
+builder.Services.AddCors(opt =>
+ {
+     opt.AddPolicy("CorsPolicy", builder =>
+         builder
+         .AllowAnyOrigin()
+         .AllowAnyHeader()
+         .AllowAnyHeader()
+         );
+ });
 
 
 builder.Services.AddControllers();
@@ -27,6 +37,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors("CorsPolicy");
 
 app.MapControllers();
 
